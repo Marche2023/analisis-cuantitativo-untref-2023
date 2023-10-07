@@ -1,0 +1,101 @@
+```{r}
+library(gutenbergr)
+
+library(tidyverse)
+
+library(tidytext)
+
+```
+
+```{r}
+gutenberg_works( author == "Shakespeare
+```
+
+```{r}
+Julius_Caesar <-
+  gutenberg_download(1522)
+```
+
+```{r}
+Julius_Caesar %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  select(n_words) %>% 
+  table()
+```
+
+```{r}
+Julius_Caesar %>% 
+
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+
+  select(n_words) %>% 
+
+  ggplot(aes(x=n_words))+
+
+  geom_histogram()
+
+```
+
+```{r}
+Julius_Caesar %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  select(n_words) %>% 
+  filter(n_words > 0) %>% 
+```
+
+```{r}
+library(tidytext)
+datos <- Julius_Caesar %>%
+  unnest_tokens(output = word, input = text) %>% 
+  group_by(word) %>% 
+  count(sort=TRUE)
+```
+
+```{r}
+Julius_Caesar %>%
+  unnest_tokens(output = word, input = text) %>% 
+  group_by(word) %>% 
+  count() %>% 
+  ggplot(aes(x=n))+
+  geom_histogram()+
+  scale_x_log10()
+```
+
+```{r}
+shapiro.test(datos$n)
+
+```
+
+```{r}
+mean(datos$n, na.rm = TRUE)
+median(datos$n, na.rm = TRUE)
+```
+
+```{r}
+sum(is.na(datos$n))
+
+```
+
+```{r}
+sd(datos$n, na.rm = TRUE)
+mad(datos$n, na.rm = TRUE)
+```
+
+```{r}
+range(datos$n, na.rm = TRUE)
+```
+
+```{r}
+datos %>% 
+  ggplot(aes(n, group=1))+
+  geom_boxplot()
+```
+
+```{r}
+boxplot(datos$n)
+
+```
+
+```{r}
+quantile(datos$n, na.rm = TRUE)
+```
