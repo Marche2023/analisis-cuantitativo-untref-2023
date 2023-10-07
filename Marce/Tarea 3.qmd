@@ -1,0 +1,38 @@
+```{r}
+library(gutenbergr)
+library(tidyverse)
+library(tidytext)
+```
+
+```{r}
+Julius_Caesar <- 
+  gutenberg_download(1522)
+```
+
+```{r}
+Julius_Caesar %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  select(n_words) %>% 
+```
+
+```{r}
+Julius_Caesar %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  select(n_words) %>% 
+```
+
+```{r}
+Julius_Caesar %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  select(n_words) %>% 
+  filter(n_words > 0) %>% 
+```
+
+```{r}
+library(tidytext) 
+Julius_Caesar %>% 
+unnest_tokens(output = word, input = text)%>% 
+group_by(word)%>% 
+count(sort = TRUE)
+
+```
