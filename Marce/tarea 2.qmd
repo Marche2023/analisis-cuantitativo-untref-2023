@@ -23,7 +23,11 @@ library(tidytext)
 ```
 
 ```{r}
-gutenberg_works( author == "Cervantes Saavedra, Miguel de")
+
+```
+
+```{r}
+gutenberg_works( author == "lope de vega") 
 ```
 
 ```{r}
@@ -34,7 +38,7 @@ library(tidytext)
 ```
 
 ```{r}
-gutenberg_works( author == "Cervantes Saavedra, Miguel de")
+gutenberg_works( author == "Lope de vega")
 ```
 
 ```{gutenberg_works}
@@ -42,7 +46,7 @@ gutenberg_works( author == "Cervantes Saavedra, Miguel de")
 ```
 
 ```{r}
-gutenberg_works( author == "Cervantes Saavedra, Miguel de")
+gutenberg_works( author == "Lope de vega")
 
 ```
 

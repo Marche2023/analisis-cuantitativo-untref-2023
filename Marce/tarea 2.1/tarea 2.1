@@ -1,0 +1,69 @@
+---
+title: "Tarea 2.1"
+format: html
+editor: visual
+---
+
+```{r}
+library(gutenbergr)
+library(tidyverse)
+library(tidytext)
+
+
+```
+
+```{r}
+gutenberg_works( author == "
+```
+
+```{r}
+if(!require(tidyverse)){
+  install.packages("tidyverse")
+  install.packages("tidytext")
+}
+if(!require(devtools)){
+  install.packages("devtools")
+}
+
+if(!require(gutenbergr)){
+  devtools::install_github("ropensci/gutenbergr")
+}
+
+```
+
+```{r}
+library(gutenbergr)
+library(tidyverse)
+library(tidytext)
+```
+
+```{r}
+gutenberg_works( author == "Shakespeare")
+gutenberg_works(startsWith(author, "Shakespeare
+```
+
+```{r}
+gutenberg_works(languages = "es", author == "
+```
+
+```{r}
+Julius_Caesar<- 
+  gutenberg_download(1522)
+```
+
+```{r}
+library(stringr)
+Julius_Caesar
+```
+
+```{r}
+Julius_Caesar
+```
+
+```{r}
+ Julius_Caesar%>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  mutate(index = row_number()) %>%  # Agregamos index 
+  ggplot(aes(x = index, y = n_words))+
+  geom_smooth()
+```
