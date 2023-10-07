@@ -1,0 +1,33 @@
+```{r}
+library(gutenbergr)
+library(tidyverse)
+library(tidytext)
+```
+
+```{r}
+gutenberg_works( author == "Shakespeare")
+gutenberg_works(startsWith(author, "Shakespeare
+```
+
+```{r}
+Julius_
+```
+
+```{r}
+library(stringr)
+Julius_Caesar %>% 
+  mutate(n_words = str_count(text,"\\w")) # contamos palabras por linea
+```
+
+```{r}
+Julius_Caesar %>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+```
+
+```{r}
+Julius_Caesar%>% 
+  mutate(n_words = stringr::str_count(text,"\\w")) %>% 
+  mutate(index = row_number()) %>%  # Agregamos index 
+  ggplot(aes(x = index, y = n_words))+
+  geom_smooth()
+```
